@@ -48,8 +48,7 @@ If no date is provided, the API returns the current date and time. Invalid dates
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/your-username/your-repo.git
-```
+git clone https://github.com/dallatIkes/freeCodeCamp-Timestamp-Microservice.git
 
 2. Install dependencies:
 ```bash
