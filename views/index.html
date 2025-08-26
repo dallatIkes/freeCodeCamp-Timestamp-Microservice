@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timestamp Microservice | freeCodeCamp.org</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Timestamp Microservice</h1>
+      <hr />
+
+      <div class="date-form">
+        <input
+          type="text"
+          id="dateInput"
+          placeholder="Enter a date or timestamp e.g. 2015-12-25 or 1451001600000"
+        />
+        <button id="submitBtn">Get Timestamp</button>
+      </div>
+
+      <h2>Example Usage:</h2>
+      <ul>
+        <li><a href="api/2015-12-25">[project url]/api/2015-12-25</a></li>
+        <li><a href="api/1451001600000">[project url]/api/1451001600000</a></li>
+      </ul>
+
+      <h2>Example Output:</h2>
+      <div class="output" id="output">
+        {"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a></p>
+    </div>
+
+    <script>
+      const input = document.getElementById("dateInput");
+      const button = document.getElementById("submitBtn");
+      const output = document.getElementById("output");
+
+      button.addEventListener("click", async () => {
+        const value = input.value.trim();
+        let url = "/api";
+        if (value) url += "/" + encodeURIComponent(value);
+
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          output.textContent = "Error fetching data";
+        }
+      });
+    </script>
+  </body>
+</html>
