@@ -51,7 +51,7 @@ app.get("/api/:date?", function (req, res) {
   // Return the date in both unix and utc formats
   else {
     res.json({
-      unix: Math.floor(date.getTime() / 1000),
+      unix: date.getTime(),
       utc: date.toUTCString()
     });
   }
