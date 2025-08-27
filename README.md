@@ -49,6 +49,7 @@ If no date is provided, the API returns the current date and time. Invalid dates
 1. Clone this repository:
 ```bash
 git clone https://github.com/dallatIkes/freeCodeCamp-Timestamp-Microservice.git
+```
 
 2. Install dependencies:
 ```bash
@@ -57,7 +58,7 @@ npm install
 
 3. Start the server:
 ```bash
-npm start
+npm run start
 ```
 
 4. Open the frontend in a browser or use the API directly.
